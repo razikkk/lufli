@@ -22,7 +22,7 @@ const contactInfo = [
   {
     icon: Mail,
     title: "Email Us",
-    details: ["info@globalconsultancy.com", "support@globalconsultancy.com"],
+    details: ["info@lufli.com", "support@lufli.com"],
   },
   {
     icon: Clock,
