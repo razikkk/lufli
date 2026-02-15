@@ -27,7 +27,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-primary text-primary-foreground">
+    <footer className="bg-[#002D62] text-primary-foreground">
       {/* Main Footer */}
       <div className="container mx-auto px-4 py-16">
     {/* THIS GRID WRAPPER MAKES THEM APPEAR IN A ROW */}

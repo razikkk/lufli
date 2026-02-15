@@ -25,17 +25,17 @@ const features = [
 
 const WhyChooseUs = () => {
   return (
-    <section className="py-20 bg-primary">
+    <section className="py-20 bg-[#002D62]">
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-16">
           <span className="text-accent font-semibold text-sm uppercase tracking-wider">
             Why Choose Us
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground mt-3 font-serif">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mt-3 font-serif">
             What Sets Us Apart
           </h2>
-          <p className="text-primary-foreground/70 mt-4 max-w-2xl mx-auto">
+          <p className="text-white mt-4 max-w-2xl mx-auto">
             Experience excellence with our comprehensive services designed to make your 
             international journey smooth and successful
           </p>
@@ -48,22 +48,22 @@ const WhyChooseUs = () => {
               key={feature.title}
               className="relative group"
             >
-              <div className="bg-primary-foreground/5 hover:bg-primary-foreground/10 rounded-2xl p-8 h-full transition-all duration-300 border border-primary-foreground/10 hover:border-accent/50">
+              <div className="bg-[#002D62]-foreground/5 hover:bg-[#002D62]-foreground/10 rounded-2xl p-8 h-full transition-all duration-300 border border-[#002D62]-foreground/10 hover:border-accent/50">
                 {/* Icon */}
                 <div className="w-16 h-16 rounded-xl bg-accent flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                   <feature.icon className="h-8 w-8 text-accent-foreground" />
                 </div>
                 
                 {/* Number badge */}
-                <span className="absolute top-6 right-6 text-5xl font-bold text-primary-foreground/10 font-serif">
+                <span className="absolute top-6 right-6 text-5xl font-bold text-white font-serif">
                   0{index + 1}
                 </span>
                 
                 {/* Content */}
-                <h3 className="text-xl font-semibold text-primary-foreground mb-3 font-serif">
+                <h3 className="text-xl font-semibold text-white mb-3 font-serif">
                   {feature.title}
                 </h3>
-                <p className="text-primary-foreground/70 leading-relaxed">
+                <p className="text-white leading-relaxed">
                   {feature.description}
                 </p>
               </div>

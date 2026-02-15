@@ -101,7 +101,7 @@ const Travel = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="relative py-24 bg-gradient-to-br from-primary to-royal-dark overflow-hidden">
+      <section className="relative py-24 bg-[#002D62] to-royal-dark overflow-hidden">
         <div className="absolute inset-0 opacity-10" style={{
           backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
         }}></div>
@@ -193,8 +193,8 @@ const Travel = () => {
                           {trip.rating}
                         </span>
                       </div>
-                      <p className="text-2xl font-bold text-primary mt-3">{trip.price}</p>
-                      <Button className="mt-4 bg-primary hover:bg-royal-dark" size="sm">
+                      <p className="text-2xl font-bold text-[#002D62] mt-3">{trip.price}</p>
+                      <Button className="mt-4 bg-[#002D62] hover:bg-royal-dark" size="sm">
                         View Details
                       </Button>
                     </CardContent>
@@ -235,8 +235,8 @@ const Travel = () => {
                 </div>
                 <CardContent className="p-4">
                   <div className="flex justify-between items-center">
-                    <p className="text-xl font-bold text-primary">{trip.price}</p>
-                    <Button size="sm" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
+                    <p className="text-xl font-bold text-[#002D62]">{trip.price}</p>
+                    <Button size="sm" variant="outline" className="border-[#002D62] text-[#002D62] hover:bg-[#002D62] hover:text-white">
                       Book Now
                     </Button>
                   </div>
@@ -272,7 +272,7 @@ const Travel = () => {
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                   <div className="absolute top-4 left-4">
-                    <span className="bg-primary text-primary-foreground px-3 py-1 rounded-full text-xs font-semibold">
+                    <span className="bg-[#002D62] text-white px-3 py-1 rounded-full text-xs font-semibold">
                       {trip.type}
                     </span>
                   </div>
@@ -284,7 +284,7 @@ const Travel = () => {
                     <span>{trip.duration}</span>
                   </div>
                   <div className="flex justify-between items-center mt-4">
-                    <p className="text-2xl font-bold text-primary">{trip.price}</p>
+                    <p className="text-2xl font-bold text-[#002D62]">{trip.price}</p>
                     <Button className="bg-accent hover:bg-golden-dark text-accent-foreground">
                       Enquire
                     </Button>

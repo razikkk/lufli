@@ -65,7 +65,7 @@ const Contact = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="relative py-24 bg-gradient-to-br from-primary to-royal-dark overflow-hidden">
+      <section className="relative py-24 bg-[#002D62] overflow-hidden">
         <div className="absolute inset-0 opacity-10" style={{
           backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
         }}></div>
@@ -92,7 +92,7 @@ const Contact = () => {
             {contactInfo.map((info) => (
               <Card key={info.title} className="border-0 shadow-lg hover:shadow-xl transition-shadow">
                 <CardContent className="p-6 text-center">
-                  <div className="w-14 h-14 rounded-xl bg-primary mx-auto flex items-center justify-center mb-4">
+                  <div className="w-14 h-14 rounded-xl bg-[#002D62] mx-auto flex items-center justify-center mb-4">
                     <info.icon className="h-7 w-7 text-primary-foreground" />
                   </div>
                   <h3 className="font-semibold text-foreground mb-3 font-serif">{info.title}</h3>

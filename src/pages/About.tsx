@@ -61,7 +61,7 @@ const About = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="relative py-24 bg-gradient-to-br from-primary to-royal-dark overflow-hidden">
+      <section className="relative py-24 bg-[#002D62] to-royal-dark overflow-hidden">
         <div className="absolute inset-0 opacity-10" style={{
           backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
         }}></div>
@@ -147,7 +147,7 @@ const About = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((value) => (
               <div key={value.title} className="bg-background rounded-2xl p-8 shadow-sm hover:shadow-lg transition-shadow">
-                <div className="w-14 h-14 rounded-xl bg-primary flex items-center justify-center mb-6">
+                <div className="w-14 h-14 rounded-xl bg-[#002D62] flex items-center justify-center mb-6">
                   <value.icon className="h-7 w-7 text-primary-foreground" />
                 </div>
                 <h3 className="text-xl font-semibold text-foreground mb-3 font-serif">
@@ -186,7 +186,7 @@ const About = () => {
                     alt={member.name}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#002D62] to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 </div>
                 <h3 className="font-semibold text-foreground">{member.name}</h3>
                 <p className="text-sm text-muted-foreground">{member.position}</p>

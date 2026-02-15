@@ -95,7 +95,7 @@ const HiringGallery = () => {
               size="icon"
               onClick={goToPrevious}
               disabled={currentIndex === 0}
-              className="h-12 w-12 rounded-full border-2 border-primary hover:bg-primary hover:text-primary-foreground disabled:opacity-50"
+              className="h-12 w-12 rounded-full border-2 border-[#002D62] hover:bg-[#002D62] hover:text-[#002D62]-foreground disabled:opacity-50"
             >
               <ChevronLeft className="h-6 w-6" />
             </Button>
@@ -104,7 +104,7 @@ const HiringGallery = () => {
               size="icon"
               onClick={goToNext}
               disabled={currentIndex >= maxIndex}
-              className="h-12 w-12 rounded-full border-2 border-primary hover:bg-primary hover:text-primary-foreground disabled:opacity-50"
+              className="h-12 w-12 rounded-full border-2 border-[#002D62] hover:bg-[#002D62] hover:text-[#002D62]-foreground disabled:opacity-50"
             >
               <ChevronRight className="h-6 w-6" />
             </Button>

@@ -95,7 +95,7 @@ const JobsSlider = () => {
               size="icon"
               onClick={goToPrevious}
               disabled={currentIndex === 0}
-              className="h-12 w-12 rounded-full border-2 border-primary hover:bg-primary hover:text-primary-foreground disabled:opacity-50"
+              className="h-12 w-12 rounded-full border-2 border-[#002D62] hover:bg-[#002D62] hover:text-[#002D62]-foreground disabled:opacity-50"
             >
               <ChevronLeft className="h-6 w-6" />
             </Button>
@@ -104,7 +104,7 @@ const JobsSlider = () => {
               size="icon"
               onClick={goToNext}
               disabled={currentIndex >= maxIndex}
-              className="h-12 w-12 rounded-full border-2 border-primary hover:bg-primary hover:text-primary-foreground disabled:opacity-50"
+              className="h-12 w-12 rounded-full border-2 border-[#002D62] hover:bg-[#002D62] hover:text-[#002D62]-foreground disabled:opacity-50"
             >
               <ChevronRight className="h-6 w-6" />
             </Button>
@@ -142,7 +142,7 @@ const JobsSlider = () => {
                   {/* Stats */}
                   <div className="space-y-4">
                     <div className="flex items-center gap-3 text-foreground">
-                      <Briefcase className="h-5 w-5 text-primary" />
+                      <Briefcase className="h-5 w-5 text-[#002D62]" />
                       <span className="font-semibold">{job.openPositions}+ Open Positions</span>
                     </div>
                     <div className="flex items-center gap-3 text-foreground">
@@ -156,7 +156,7 @@ const JobsSlider = () => {
                   </div>
 
                   {/* CTA */}
-                  <Button className="w-full mt-6 bg-primary hover:bg-royal-dark">
+                  <Button className="w-full mt-6 bg-[#002D62] hover:bg-royal-dark">
                     View All Jobs
                   </Button>
                 </CardContent>
@@ -188,7 +188,7 @@ const JobsSlider = () => {
               </div>
               <CardContent className="p-4">
                 <p className="font-semibold text-foreground">{job.openPositions}+ Positions</p>
-                <Button className="w-full mt-4 bg-primary hover:bg-royal-dark" size="sm">
+                <Button className="w-full mt-4 bg-[#002D62] hover:bg-royal-dark" size="sm">
                   View Jobs
                 </Button>
               </CardContent>

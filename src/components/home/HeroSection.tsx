@@ -1,101 +1,89 @@
-import { useState } from "react";
-import { Search, MapPin, Briefcase } from "lucide-react";
+import { Globe2, Users, Trophy, Building2, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 
 const HeroSection = () => {
-  const [searchQuery, setSearchQuery] = useState("");
-  const [location, setLocation] = useState("");
-
-  const handleSearch = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log("Searching for:", searchQuery, "in", location);
-  };
-
   return (
-    <section className="relative min-h-[600px] lg:min-h-[700px] flex items-center overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-royal-dark">        {/* Decorative elements */}
-        <div className="absolute top-20 right-10 w-72 h-72 bg-accent/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 left-10 w-96 h-96 bg-accent/5 rounded-full blur-3xl"></div>
+    <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-[#002D62]">
+      {/* --- PREMIUM BACKGROUND LAYER --- */}
+      <div className="absolute inset-0">
+        {/* Blue Gradient Base */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#002D62] via-[#003b82] to-[#001a3a]"></div>
         
-        {/* Pattern overlay */}
-        <div className="absolute inset-0 opacity-10" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
-        }}></div>
+        {/* Subtle Map Overlay - Professional for Global Manpower */}
+        <div 
+          className="absolute inset-0 opacity-10 pointer-events-none"
+          style={{ 
+            backgroundImage: `url('https://www.transparenttextures.com/patterns/world-map.png')`,
+            backgroundSize: 'contain',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat'
+          }}
+        ></div>
+
+        {/* Abstract Light Rays (Yellow hue) */}
+        <div className="absolute -top-24 -right-24 w-96 h-96 bg-yellow-400/10 rounded-full blur-[120px]"></div>
       </div>
 
-      <div className="container mx-auto px-4 relative z-10 pt-24 md:pt-0">
-        <div className="max-w-4xl mx-auto text-center">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-4 py-2 rounded-full text-sm font-semibold mb-8 animate-fade-in-up">
-            <span className="w-2 h-2 bg-accent-foreground rounded-full animate-pulse"></span>
-            NOW HIRING WORLDWIDE
+      <div className="container mx-auto px-6 relative z-10 py-12">
+        <div className="flex flex-col items-center text-center">
+          
+          {/* 1. THE LOGO BOX (Centered & Impactful) */}
+          <div className="mb-8 p-4 rounded-2xl shadow-2xl animate-fade-in transform hover:scale-105 transition-transform duration-500">
+            {/* Replace /logo.png with your actual image path */}
+            <img 
+              src="/lufli-white.png" 
+              alt="Company Logo" 
+              className="h-20 md:h-28 w-auto object-contain"
+            />
           </div>
 
-          {/* Main Heading */}
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-6 font-serif leading-tight animate-fade-in-up">
-            Find Your Dream Career
-            <span className="block text-accent">Across The Globe</span>
+          {/* 2. Headline with Yellow Accents */}
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-6 leading-[1.1] tracking-tight">
+            Connecting Talent to <br />
+            <span className="text-[#FFD700]">Global Opportunities</span>
           </h1>
 
-          {/* Subtitle */}
-          <p className="text-xl text-primary-foreground/80 mb-10 max-w-2xl mx-auto animate-fade-in-up">
-            Connect with verified employers worldwide. We've helped over 10,000+ professionals 
-            find rewarding careers in USA, Dubai, Canada, UK, and beyond.
+          {/* 3. Subtitle */}
+          <p className="text-lg md:text-xl text-white/80 mb-10 max-w-2xl font-light leading-relaxed">
+            Your trusted partner in international recruitment. We bridge the gap 
+            between skilled professionals and leading industries worldwide.
           </p>
 
-          {/* Search Bar */}
-          {/* <form onSubmit={handleSearch} className="bg-background rounded-2xl p-3 shadow-2xl max-w-3xl mx-auto animate-fade-in-up">
-            <div className="flex flex-col md:flex-row gap-3">
-              <div className="flex-1 relative">
-                <Briefcase className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-                <Input
-                  type="text"
-                  placeholder="Job title, keywords, or company"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-12 h-14 border-0 bg-muted/50 text-lg"
-                />
-              </div>
-              <div className="flex-1 relative">
-                <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-                <Input
-                  type="text"
-                  placeholder="Country or city"
-                  value={location}
-                  onChange={(e) => setLocation(e.target.value)}
-                  className="pl-12 h-14 border-0 bg-muted/50 text-lg"
-                />
-              </div>
-              <Button type="submit" className="h-14 px-8 bg-accent hover:bg-golden-dark text-accent-foreground font-semibold text-lg">
-                <Search className="mr-2 h-5 w-5" />
-                Search Jobs
-              </Button>
-            </div>
-          </form> */}
-
-          {/* Stats */}
-          <div className="flex flex-wrap justify-center gap-8 md:gap-16 mt-12 animate-fade-in-up">
-            <div className="text-center">
-              <p className="text-3xl md:text-4xl font-bold text-accent">10K+</p>
-              <p className="text-primary-foreground/70">Jobs Placed</p>
-            </div>
-            <div className="text-center">
-              <p className="text-3xl md:text-4xl font-bold text-accent">50+</p>
-              <p className="text-primary-foreground/70">Countries</p>
-            </div>
-            <div className="text-center">
-              <p className="text-3xl md:text-4xl font-bold text-accent">98%</p>
-              <p className="text-primary-foreground/70">Success Rate</p>
-            </div>
-            <div className="text-center">
-              <p className="text-3xl md:text-4xl font-bold text-accent">10+</p>
-              <p className="text-primary-foreground/70">Years Experience</p>
-            </div>
+          {/* 4. Action Buttons (Yellow Primary) */}
+          <div className="flex flex-col sm:flex-row gap-4 mb-16">
+            <Button className="h-14 px-10 bg-[#FFD700] hover:bg-[#e6c200] text-[#002D62] font-bold text-lg rounded-full shadow-xl shadow-yellow-900/20 group">
+              Explore Vacancies
+              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </Button>
+            <Button variant="outline" className="h-14 px-10 border-white/20 bg-white/5 text-white hover:bg-white/10 rounded-full backdrop-blur-md">
+              For Employers
+            </Button>
           </div>
+
+          {/* 5. Trust Bar (Replaced the search box with Credibility) */}
+          <div className="w-full max-w-5xl grid grid-cols-2 md:grid-cols-4 gap-4">
+            {[
+              { label: "Placements", value: "10K+", icon: Users },
+              { label: "Countries", value: "25+", icon: Globe2 },
+              { label: "Industries", value: "12+", icon: Building2 },
+              { label: "Success Rate", value: "99%", icon: Trophy },
+            ].map((item, index) => (
+              <div 
+                key={index} 
+                className="bg-white/5 backdrop-blur-sm border border-white/10 p-6 rounded-2xl flex flex-col items-center justify-center hover:bg-white/10 transition-colors"
+              >
+                <item.icon className="w-6 h-6 text-[#FFD700] mb-2" />
+                <span className="text-2xl font-bold text-white">{item.value}</span>
+                <span className="text-xs text-white/50 uppercase tracking-widest font-semibold">{item.label}</span>
+              </div>
+            ))}
+          </div>
+
         </div>
       </div>
+
+      {/* Elegant Bottom Border */}
+      <div className="absolute bottom-0 left-0 w-full h-1.5 bg-gradient-to-r from-transparent via-[#FFD700] to-transparent"></div>
     </section>
   );
 };

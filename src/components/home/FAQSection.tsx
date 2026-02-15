@@ -54,7 +54,7 @@ const FAQSection = () => {
                 value={`item-${index}`}
                 className="bg-background rounded-xl border-0 shadow-sm px-6 data-[state=open]:shadow-md transition-shadow"
               >
-                <AccordionTrigger className="text-left text-lg font-semibold text-foreground hover:text-primary py-6 hover:no-underline">
+                <AccordionTrigger className="text-left text-lg font-semibold text-foreground hover:text-[#002D62] py-6 hover:no-underline">
                   {faq.question}
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground leading-relaxed pb-6">
@@ -68,7 +68,7 @@ const FAQSection = () => {
           <div className="text-center mt-12">
             <p className="text-muted-foreground">
               Still have questions?{" "}
-              <a href="/contact" className="text-primary font-semibold hover:text-accent transition-colors">
+              <a href="/contact" className="text-[#002D62] font-semibold hover:text-accent transition-colors">
                 Contact our team
               </a>
             </p>

@@ -20,7 +20,7 @@ const Header = () => {
   return (
     <header className="sticky top-0 z-50 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border">
       {/* Top bar */}
-      <div className="bg-primary text-primary-foreground py-2 hidden md:block">
+      <div className="bg-[#002D62] text-primary-foreground py-2 hidden md:block">
         <div className="container mx-auto px-4 flex justify-between items-center text-sm">
           <div className="flex items-center gap-6">
             <a href="tel:+1234567890" className="flex items-center gap-2 hover:text-accent transition-colors">
@@ -66,9 +66,9 @@ const Header = () => {
               <Link
                 key={link.path}
                 to={link.path}
-                className={`text-sm font-medium transition-colors hover:text-primary relative py-2 ${
+                className={`text-sm font-medium transition-colors hover:text-[#002D62] relative py-2 ${
                   isActive(link.path) 
-                    ? "text-primary after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-accent" 
+                    ? "text-[#002D62] after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-accent" 
                     : "text-foreground"
                 }`}
               >
