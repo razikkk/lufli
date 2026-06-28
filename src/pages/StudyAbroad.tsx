@@ -71,11 +71,11 @@ const countries = [
 ];
 
 const process = [
-  { step: 1, title: "Free Counseling", description: "Discuss your goals and explore options" },
-  { step: 2, title: "University Selection", description: "Choose the best-fit universities" },
-  { step: 3, title: "Application Support", description: "Complete and submit applications" },
-  { step: 4, title: "Visa Assistance", description: "Full visa application support" },
-  { step: 5, title: "Pre-Departure", description: "Orientation and travel arrangements" },
+  { step: 1, title: "Domestic and international admissions", description: "Discuss your goals and explore options" },
+  { step: 2, title: "Credit transfer assistance", description: "Choose the best-fit universities" },
+  { step: 3, title: "DataFlow verification", description: "Complete and submit applications" },
+  { step: 4, title: "Prometric exam guidance", description: "Full visa application support" },
+  { step: 5, title: "Educational documentation and processing", description: "Orientation and travel arrangements" },
 ];
 
 const StudyAbroad = () => {

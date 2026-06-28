@@ -81,7 +81,7 @@ const HiringGallery = () => {
               Latest Updates
             </span>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-2 font-serif">
-              Now Hiring Gallery
+              Now Hiring
             </h2>
             <p className="text-muted-foreground mt-3 max-w-xl">
               Browse our recent job postings, events, and success stories

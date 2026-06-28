@@ -11,7 +11,7 @@ const Header = () => {
     { name: "Home", path: "/" },
     { name: "About", path: "/about" },
     { name: "Travel", path: "/travel" },
-    { name: "Study Abroad", path: "/study-abroad" },
+    // { name: "Study Abroad", path: "/study-abroad" },
     { name: "Contact", path: "/contact" },
   ];
 
@@ -23,13 +23,13 @@ const Header = () => {
       <div className="bg-[#002D62] text-primary-foreground py-2 hidden md:block">
         <div className="container mx-auto px-4 flex justify-between items-center text-sm">
           <div className="flex items-center gap-6">
-            <a href="tel:+1234567890" className="flex items-center gap-2 hover:text-accent transition-colors">
+            <a href="tel:+918891416777" className="flex items-center gap-2 hover:text-accent transition-colors">
               <Phone className="h-4 w-4" />
-              +1 (234) 567-890
+              +91 8891416777
             </a>
-            <a href="mailto:info@globalconsultancy.com" className="flex items-center gap-2 hover:text-accent transition-colors">
+            <a href="mailto:hr@lufliinternational.com " className="flex items-center gap-2 hover:text-accent transition-colors">
               <Mail className="h-4 w-4" />
-              info@lufli.com
+              hr@lufliinternational.com            
             </a>
           </div>
           <p className="text-primary-foreground/80">Your Gateway to Global Opportunities</p>

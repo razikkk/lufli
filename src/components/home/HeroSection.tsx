@@ -1,7 +1,23 @@
 import { Globe2, Users, Trophy, Building2, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 
 const HeroSection = () => {
+  const navigate = useNavigate()
+  const handleExploreClick = () => {
+    const jobsSection = document.getElementById("jobs-section");
+    if (jobsSection) {
+      jobsSection.scrollIntoView({ 
+        behavior: "smooth", 
+        block: "start" 
+      });
+    }
+  };
+
+  const handleContactClick = () => {
+    navigate("/contact"); // Routes to the Contact Page
+  };
+  
   return (
     <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-[#002D62]">
       {/* --- PREMIUM BACKGROUND LAYER --- */}
@@ -51,12 +67,12 @@ const HeroSection = () => {
 
           {/* 4. Action Buttons (Yellow Primary) */}
           <div className="flex flex-col sm:flex-row gap-4 mb-16">
-            <Button className="h-14 px-10 bg-[#FFD700] hover:bg-[#e6c200] text-[#002D62] font-bold text-lg rounded-full shadow-xl shadow-yellow-900/20 group">
-              Explore Vacancies
+            <Button onClick={handleExploreClick} className="h-14 px-10 bg-[#FFD700] hover:bg-[#e6c200] text-[#002D62] font-bold text-lg rounded-full shadow-xl shadow-yellow-900/20 group">
+              Explore
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Button>
-            <Button variant="outline" className="h-14 px-10 border-white/20 bg-white/5 text-white hover:bg-white/10 rounded-full backdrop-blur-md">
-              For Employers
+            <Button onClick={handleContactClick} variant="outline" className="h-14 px-10 border-white/20 bg-white/5 text-white hover:bg-white/10 rounded-full backdrop-blur-md">
+              Contact Us
             </Button>
           </div>
 

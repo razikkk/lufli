@@ -8,26 +8,32 @@ import { Card, CardContent } from "@/components/ui/card";
 import { MapPin, Phone, Mail, Clock, Send } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
-const contactInfo = [
+// Separated Branch-specific data from generic contact info
+const branches = [
   {
+    name: "Head Office",
     icon: MapPin,
-    title: "Visit Us",
-    details: ["123 Business Tower, Suite 456", "New York, NY 10001, USA"],
+    address: ["Apco Hyundai, Puthiyara, Kozhikode, Kerala 673004"],
+    phones: ["+91 8891416777", "+91 8891426777"],
   },
   {
-    icon: Phone,
-    title: "Call Us",
-    details: ["+1 (234) 567-890", "+1 (234) 567-891"],
+    name: "Regional Branch",
+    icon: MapPin,
+    address: ["First Floor, & CO, X6HW+FQM National Highway 966 BROS, Dubaipadi, Ponniakurussi, Perinthalmanna, Kerala 679322"],
+    phones: ["+91 8891416777", "+91 8891426777"],
   },
+];
+
+const globalContact = [
   {
     icon: Mail,
     title: "Email Us",
-    details: ["info@lufli.com", "support@lufli.com"],
+    details: ["info@lufliinternational.com", "hr@lufliinternational.com"],
   },
   {
     icon: Clock,
     title: "Office Hours",
-    details: ["Monday - Friday: 9AM - 6PM", "Saturday: 10AM - 4PM", "Sunday: Closed"],
+    details: ["Monday - Saturday: 9AM - 6PM", "Closed on Sundays"],
   },
 ];
 
@@ -50,7 +56,6 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
     toast({
@@ -65,7 +70,7 @@ const Contact = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="relative py-24 bg-[#002D62] overflow-hidden">
+      <section className="relative py-28 bg-[#002D62] overflow-hidden">
         <div className="absolute inset-0 opacity-10" style={{
           backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
         }}></div>
@@ -78,144 +83,165 @@ const Contact = () => {
               Let's Start Your
               <span className="text-accent"> Journey Together</span>
             </h1>
-            <p className="text-xl text-primary-foreground/80">
-              Have questions? We're here to help you every step of the way
+            <p className="text-lg md:text-xl text-primary-foreground/80 max-w-2xl mx-auto">
+              Have questions or ready to take the next step? Connect with our global offices or drop us a direct line below.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Contact Info Cards */}
-      <section className="py-16 bg-background">
+      {/* Main Core Section: Split Layout Info vs Form */}
+      <section className="py-24 bg-background">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-            {contactInfo.map((info) => (
-              <Card key={info.title} className="border-0 shadow-lg hover:shadow-xl transition-shadow">
-                <CardContent className="p-6 text-center">
-                  <div className="w-14 h-14 rounded-xl bg-[#002D62] mx-auto flex items-center justify-center mb-4">
-                    <info.icon className="h-7 w-7 text-primary-foreground" />
-                  </div>
-                  <h3 className="font-semibold text-foreground mb-3 font-serif">{info.title}</h3>
-                  {info.details.map((detail, index) => (
-                    <p key={index} className="text-muted-foreground text-sm">
-                      {detail}
-                    </p>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            
+            {/* Left Hand Side: Structured Corporate Desk details (Columns 5) */}
+            <div className="lg:col-span-5 space-y-10">
+              
+              {/* Branch Network */}
+              <div className="space-y-4">
+                <h2 className="text-2xl font-bold text-foreground font-serif tracking-tight">Our Branches</h2>
+                <p className="text-muted-foreground text-sm">Visit our corporate establishments for regional consulting and operations.</p>
+                <div className="space-y-4 pt-2">
+                  {branches.map((branch) => (
+                    <Card key={branch.name} className="border border-muted/60 shadow-sm hover:shadow-md transition-all duration-300">
+                      <CardContent className="p-6">
+                        <div className="flex items-start gap-4">
+                          <div className="w-10 h-10 rounded-lg bg-[#002D62]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <branch.icon className="h-5 w-5 text-[#002D62]" />
+                          </div>
+                          <div className="space-y-3 flex-1">
+                            <h3 className="font-bold text-foreground font-serif text-lg leading-none">{branch.name}</h3>
+                            <div className="text-sm text-muted-foreground leading-relaxed">
+                              {branch.address.map((line, i) => (
+                                <p key={i}>{line}</p>
+                              ))}
+                            </div>
+                            <div className="pt-3 border-t border-muted/60 text-sm font-medium text-foreground space-y-1">
+                              {branch.phones.map((phone, i) => (
+                                <p key={i} className="flex items-center gap-2">
+                                  <Phone className="h-3.5 w-3.5 text-[#002D62]" /> {phone}
+                                </p>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
                   ))}
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Map & Form Section */}
-      <section className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12">
-            {/* Map */}
-            <div>
-              <h2 className="text-2xl font-bold text-foreground mb-6 font-serif">Find Us</h2>
-              <div className="rounded-2xl overflow-hidden shadow-xl h-[500px]">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193595.15830869428!2d-74.11976397304903!3d40.69766374874431!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2s!4v1635959481000!5m2!1sen!2s"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title="Office Location"
-                ></iframe>
+                </div>
               </div>
+
+              {/* Global Channels */}
+              <div className="space-y-4">
+                <h2 className="text-xl font-bold text-foreground font-serif tracking-tight">Direct Communications</h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {globalContact.map((info) => (
+                    <Card key={info.title} className="border border-muted/40 bg-muted/10 shadow-none">
+                      <CardContent className="p-5">
+                        <div className="w-9 h-9 rounded-md bg-[#002D62] flex items-center justify-center mb-3">
+                          <info.icon className="h-4 w-4 text-primary-foreground" />
+                        </div>
+                        <h3 className="font-bold text-foreground font-serif text-sm mb-1.5">{info.title}</h3>
+                        {info.details.map((detail, index) => (
+                          <p key={index} className="text-muted-foreground text-xs leading-relaxed">
+                            {detail}
+                          </p>
+                        ))}
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+              </div>
+
             </div>
 
-            {/* Contact Form */}
-            <div>
-              <h2 className="text-2xl font-bold text-foreground mb-6 font-serif">Send Us a Message</h2>
-              <Card className="border-0 shadow-xl">
-                <CardContent className="p-8">
+            {/* Right Hand Side: High Converting Contact Desk Form (Columns 7) */}
+            <div className="lg:col-span-7">
+              <div className="space-y-4 mb-6">
+                <h2 className="text-2xl font-bold text-foreground font-serif tracking-tight">Send Us a Message</h2>
+                <p className="text-muted-foreground text-sm">Fill out the official inquiry document below, and an expert consultant will contact you within 24 hours.</p>
+              </div>
+              
+              <Card className="border border-muted/60 shadow-xl shadow-muted/20 rounded-2xl">
+                <CardContent className="p-6 md:p-10">
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid md:grid-cols-2 gap-6">
                       <div className="space-y-2">
-                        <Label htmlFor="name">Full Name *</Label>
+                        <Label htmlFor="name" className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Full Name *</Label>
                         <Input
                           id="name"
                           name="name"
                           value={formData.name}
                           onChange={handleChange}
-                          placeholder="John Doe"
                           required
-                          className="h-12"
+                          className="h-12 border-muted hover:border-[#002D62]/50 focus-visible:ring-[#002D62]"
                         />
                       </div>
                       <div className="space-y-2">
-                        <Label htmlFor="email">Email Address *</Label>
+                        <Label htmlFor="email" className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Email Address *</Label>
                         <Input
                           id="email"
                           name="email"
                           type="email"
                           value={formData.email}
                           onChange={handleChange}
-                          placeholder="john@example.com"
                           required
-                          className="h-12"
+                          className="h-12 border-muted hover:border-[#002D62]/50 focus-visible:ring-[#002D62]"
                         />
                       </div>
                     </div>
 
                     <div className="grid md:grid-cols-2 gap-6">
                       <div className="space-y-2">
-                        <Label htmlFor="phone">Phone Number</Label>
+                        <Label htmlFor="phone" className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Phone Number</Label>
                         <Input
                           id="phone"
                           name="phone"
                           type="tel"
                           value={formData.phone}
                           onChange={handleChange}
-                          placeholder="+1 (234) 567-890"
-                          className="h-12"
+                          className="h-12 border-muted hover:border-[#002D62]/50 focus-visible:ring-[#002D62]"
                         />
                       </div>
                       <div className="space-y-2">
-                        <Label htmlFor="subject">Subject *</Label>
+                        <Label htmlFor="subject" className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Subject *</Label>
                         <Input
                           id="subject"
                           name="subject"
                           value={formData.subject}
                           onChange={handleChange}
-                          placeholder="How can we help?"
                           required
-                          className="h-12"
+                          className="h-12 border-muted hover:border-[#002D62]/50 focus-visible:ring-[#002D62]"
                         />
                       </div>
                     </div>
 
                     <div className="space-y-2">
-                      <Label htmlFor="message">Message *</Label>
+                      <Label htmlFor="message" className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Message *</Label>
                       <Textarea
                         id="message"
                         name="message"
                         value={formData.message}
                         onChange={handleChange}
-                        placeholder="Tell us more about your requirements..."
                         required
-                        rows={5}
-                        className="resize-none"
+                        rows={6}
+                        className="resize-none border-muted hover:border-[#002D62]/50 focus-visible:ring-[#002D62]"
                       />
                     </div>
 
                     <Button
                       type="submit"
                       size="lg"
-                      className="w-full bg-accent hover:bg-golden-dark text-accent-foreground font-semibold"
+                      className="w-full bg-[#002D62] hover:bg-[#001f44] text-white font-semibold tracking-wide shadow-lg transition-all"
                       disabled={isSubmitting}
                     >
                       {isSubmitting ? (
                         "Sending..."
                       ) : (
                         <>
-                          <Send className="mr-2 h-5 w-5" />
-                          Send Message
+                          <Send className="mr-2 h-4 w-4" />
+                          Submit Inquiry
                         </>
                       )}
                     </Button>
@@ -223,6 +249,7 @@ const Contact = () => {
                 </CardContent>
               </Card>
             </div>
+
           </div>
         </div>
       </section>

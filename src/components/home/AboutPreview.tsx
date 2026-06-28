@@ -4,10 +4,10 @@ import { CheckCircle } from "lucide-react";
 
 const AboutPreview = () => {
   const highlights = [
-    "10+ Years of Industry Excellence",
-    "Trusted by 500+ Global Companies",
-    "Personalized Career Counseling",
-    "End-to-End Documentation Support",
+    "5+ Years of Industry Excellence",
+    "Trusted by clients globally for manpower, education, and travel services",
+    "End-to-end solutions across multiple sectors",
+    "Professional, ethical, and transparent approach",
   ];
 
   return (
@@ -47,16 +47,16 @@ const AboutPreview = () => {
             </h2>
             
             <p className="text-muted-foreground text-lg leading-relaxed mb-6">
-              For over a decade, Lufli has been at the forefront of connecting 
-              talented professionals with world-class employers across the globe. Our dedicated 
-              team of experts provides personalized guidance every step of the way.
+            Lufli International was founded with a clear vision: to simplify global opportunities
+for individuals and organizations through reliable, ethical, and expert-driven services.
+With over 5+ years of industry experience, we have grown into a trusted name across
+manpower solutions, travel & tourism, and education services.
             </p>
             
             <p className="text-muted-foreground leading-relaxed mb-8">
-              From job placement and visa assistance to travel services and study abroad programs, 
-              we offer comprehensive solutions tailored to your unique aspirations. Our commitment 
-              to integrity and excellence has made us the preferred choice for thousands of 
-              individuals seeking international opportunities.
+            From our early days, our focus has always been on quality, transparency, and long-
+term relationships. What started as a small initiative has evolved into a multi-service
+organization serving clients across domestic and international markets.
             </p>
 
             {/* Highlights */}

@@ -115,7 +115,8 @@ const Travel = () => {
               <span className="text-accent"> With Us</span>
             </h1>
             <p className="text-xl text-primary-foreground/80">
-              Curated travel experiences for leisure, business, and educational purposes
+            Our travel division offers dependable and personalized travel solutions, ensuring
+smooth, hassle-free experiences for leisure, business, and educational travel needs.
             </p>
           </div>
         </div>

@@ -97,21 +97,20 @@ const Footer = () => {
             <div className="flex items-start gap-3">
               <MapPin className="h-5 w-5 text-accent shrink-0" />
               <p className="text-sm text-primary-foreground/80">
-                123 Business Tower, Suite 456, New York, NY
+              Apco Hyundai, Puthiyara, Kozhikode, Kerala 673004
               </p>
             </div>
           </div>
 
           <div className="space-y-2">
             <span className="text-[10px] uppercase tracking-widest text-accent font-bold">Enquiries</span>
-            <a href="tel:+1234567890" className="flex items-center gap-3 text-sm text-primary-foreground/80 hover:text-accent transition-colors">
+            <a href="tel:+918891416777" className="flex items-center gap-3 text-sm text-primary-foreground/80 hover:text-accent transition-colors">
               <Phone className="h-5 w-5 text-accent" />
-              +1 (234) 567-890
+              +91 8891416777
             </a>
-            <a href="mailto:info@globalconsultancy.com" className="flex items-center gap-3 text-sm text-primary-foreground/80 hover:text-accent transition-colors">
+            <a href="mailto:hr@lufliinternational.com" className="flex items-center gap-3 text-sm text-primary-foreground/80 hover:text-accent transition-colors">
               <Mail className="h-5 w-5 text-accent" />
-              info@globalconsultancy.com
-            </a>
+              hr@lufliinternational.com            </a>
           </div>
         </div>
       </div>

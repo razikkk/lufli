@@ -3,34 +3,29 @@ import { Users, Award, Target, Heart } from "lucide-react";
 
 const teamMembers = [
   {
-    name: "James Wilson",
-    position: "CEO & Founder",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80",
+    name: "Jazna",
+    position: "Hr recruiter",
+    image: "/jazna.PNG",
   },
   {
-    name: "Sarah Chen",
-    position: "Director of Operations",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80",
+    name: "Falah",
+    position: "Hr recruiter",
+    image: "/falah.png",
   },
   {
-    name: "Michael Brown",
-    position: "Head of Recruitment",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80",
+    name: "Muneera",
+    position: "Admission Counsellor",
+    image: "muneera.jpg",
   },
   {
-    name: "Emily Davis",
-    position: "Visa Specialist",
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&q=80",
+    name: "Anjitha",
+    position: "Hr recruiter",
+    image: "anjitha.JPG",
   },
   {
-    name: "David Kim",
-    position: "Study Abroad Advisor",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80",
-  },
-  {
-    name: "Lisa Anderson",
-    position: "Client Relations Manager",
-    image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&q=80",
+    name: "Masroora",
+    position: "Hr recruiter",
+    image: "masroora.jpg",
   },
 ];
 
@@ -90,32 +85,22 @@ const About = () => {
                 Our Story
               </span>
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-3 mb-6 font-serif">
-                A Decade of Excellence
-              </h2>
+              Your Trusted Partner for Global Opportunities
+                            </h2>
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>
-                  Lufli was founded in 2014 with a simple yet powerful vision: 
-                  to make international opportunities accessible to everyone. What started as 
-                  a small office with just three dedicated professionals has grown into a 
-                  comprehensive consultancy serving thousands of clients across the globe.
+                Lufli International is a leading manpower firm dedicated to connecting talented individuals with the right career opportunities across the globe. For over a decade, we have been at the forefront of recruitment, helping people secure meaningful jobs that build stable futures for themselves and their families.
+
+Our mission goes beyond placement—we aim to transform lives. By understanding both employer needs and candidate aspirations, we create opportunities that ensure long-term success and growth.
+
+
                 </p>
                 <p>
-                  Our journey began when our founder, James Wilson, experienced firsthand 
-                  the challenges of navigating international job markets. Determined to help 
-                  others avoid similar struggles, he established Lufli as a 
-                  one-stop solution for job placement, visa assistance, and career development.
+                With a strong network of global employers and industry expertise, we provide end-to-end manpower solutions, including recruitment, visa assistance, documentation, and career guidance. Every step of the journey is handled with care, transparency, and professionalism.
+
+At Lufli International, we don’t just find jobs—we help build careers, strengthen families, and shape a better future.
                 </p>
-                <p>
-                  Today, we're proud to have facilitated over 10,000 successful placements in 
-                  more than 50 countries. Our team has grown to include specialists in 
-                  recruitment, immigration, travel, and education—all working together to 
-                  help our clients achieve their dreams.
-                </p>
-                <p>
-                  As we look to the future, we remain committed to our core values of 
-                  integrity, excellence, and personalized service. Every success story from 
-                  our clients fuels our passion to do even more.
-                </p>
+               
               </div>
             </div>
             <div className="relative">
@@ -125,7 +110,7 @@ const About = () => {
                 className="rounded-2xl shadow-2xl"
               />
               <div className="absolute -bottom-8 -left-8 bg-accent text-accent-foreground p-8 rounded-2xl shadow-xl">
-                <p className="text-5xl font-bold font-serif">10+</p>
+                <p className="text-5xl font-bold font-serif">5+</p>
                 <p className="text-sm mt-1">Years of Experience</p>
               </div>
             </div>
@@ -164,37 +149,44 @@ const About = () => {
 
       {/* Team Section */}
       <section className="py-20 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <span className="text-accent font-semibold text-sm uppercase tracking-wider">
-              Our Team
-            </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-3 font-serif">
-              Meet the Experts
-            </h2>
-            <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
-              Our dedicated team of professionals brings together decades of experience 
-              in recruitment, immigration, and career development
-            </p>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-            {teamMembers.map((member) => (
-              <div key={member.name} className="group text-center">
-                <div className="relative rounded-xl overflow-hidden mb-4 aspect-square">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#002D62] to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                </div>
-                <h3 className="font-semibold text-foreground">{member.name}</h3>
-                <p className="text-sm text-muted-foreground">{member.position}</p>
-              </div>
-            ))}
-          </div>
+      <div className="container mx-auto px-4">
+        {/* Section Header */}
+        <div className="text-center mb-16">
+          <span className="text-accent font-semibold text-sm uppercase tracking-wider">
+            Our Team
+          </span>
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-3 font-serif">
+            Meet the Experts
+          </h2>
+          <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
+            Our dedicated team of professionals brings together decades of experience 
+            in recruitment, immigration, and career development
+          </p>
         </div>
-      </section>
+
+        {/* Balanced Grid: Centered on mobile, 3 items on tablet, 5 items on desktop */}
+        <div className="grid grid-cols-2 sm:flex sm:flex-wrap sm:justify-center md:grid md:grid-cols-3 lg:grid-cols-5 gap-6 max-w-6xl mx-auto">
+          {teamMembers.map((member) => (
+            <div key={member.name} className="group text-center sm:w-[calc(33.333%-16px)] lg:w-auto">
+              <div className="relative rounded-xl overflow-hidden mb-4 aspect-square shadow-sm">
+                <img
+                  src={member.image}
+                  alt={member.name}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#002D62]/90 via-[#002D62]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </div>
+              <h3 className="font-semibold text-foreground group-hover:text-[#002D62] transition-colors">
+                {member.name}
+              </h3>
+              <p className="text-xs md:text-sm text-muted-foreground mt-0.5">
+                {member.position}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
     </Layout>
   );
 };
