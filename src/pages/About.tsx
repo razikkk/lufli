@@ -109,10 +109,7 @@ At Lufli International, we don’t just find jobs—we help build careers, stren
                 alt="Team collaboration"
                 className="rounded-2xl shadow-2xl"
               />
-              <div className="absolute -bottom-8 -left-8 bg-accent text-accent-foreground p-8 rounded-2xl shadow-xl">
-                <p className="text-5xl font-bold font-serif">5+</p>
-                <p className="text-sm mt-1">Years of Experience</p>
-              </div>
+             
             </div>
           </div>
         </div>
