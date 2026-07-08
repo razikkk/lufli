@@ -5,6 +5,7 @@ import AboutPreview from "@/components/home/AboutPreview";
 import WhyChooseUs from "@/components/home/WhyChooseUs";
 import HiringGallery from "@/components/home/HiringGallery";
 import FAQSection from "@/components/home/FAQSection";
+import CanidatesGallery from "@/components/home/CanidatesGallery";
 
 const Index = () => {
   return (
@@ -14,6 +15,7 @@ const Index = () => {
       <AboutPreview />
       <WhyChooseUs />
       <HiringGallery />
+      <CanidatesGallery/>
       <FAQSection />
     </Layout>
   );
