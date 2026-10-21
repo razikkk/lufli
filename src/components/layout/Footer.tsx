@@ -6,7 +6,7 @@ const Footer = () => {
     { name: "Home", path: "/" },
     { name: "About Us", path: "/about" },
     { name: "Travel Services", path: "/travel" },
-    { name: "Study Abroad", path: "/study-abroad" },
+    // { name: "Study Abroad", path: "/study-abroad" },
     { name: "Contact Us", path: "/contact" },
   ];
 
@@ -104,9 +104,9 @@ const Footer = () => {
 
           <div className="space-y-2">
             <span className="text-[10px] uppercase tracking-widest text-accent font-bold">Enquiries</span>
-            <a href="tel:+918891416777" className="flex items-center gap-3 text-sm text-primary-foreground/80 hover:text-accent transition-colors">
+            <a href="tel:+918891362777" className="flex items-center gap-3 text-sm text-primary-foreground/80 hover:text-accent transition-colors">
               <Phone className="h-5 w-5 text-accent" />
-              +91 8891416777
+              +91 88913 62777
             </a>
             <a href="mailto:hr@lufliinternational.com" className="flex items-center gap-3 text-sm text-primary-foreground/80 hover:text-accent transition-colors">
               <Mail className="h-5 w-5 text-accent" />

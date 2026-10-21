@@ -14,13 +14,13 @@ const branches = [
     name: "Head Office",
     icon: MapPin,
     address: ["Apco Hyundai, Puthiyara, Kozhikode, Kerala 673004"],
-    phones: ["+91 8891416777", "+91 8891426777", "+91 9745000704"],
+    phones: ["+91 88913 62777"],
   },
   {
     name: "Regional Branch",
     icon: MapPin,
     address: ["First Floor, & CO, X6HW+FQM National Highway 966 BROS, Dubaipadi, Ponniakurussi, Perinthalmanna, Kerala 679322"],
-    phones: ["+91 8891416777", "+91 8891426777"],
+    phones: ["+91 88914 26777"],
   },
   {
     name: "Trichy Branch",
@@ -30,7 +30,7 @@ const branches = [
       "Opp Hotel Shaans, Tennur,",
       "Trichy, Tamil Nadu 620017"
     ],
-    phones: ["+91 8891416777", "+91 8891426777"], // Swap with specific Trichy numbers if needed
+    phones: ["+91 87149 92444"], // Swap with specific Trichy numbers if needed
   },
 ];
 

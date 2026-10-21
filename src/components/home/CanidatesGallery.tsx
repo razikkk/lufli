@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ChevronLeft, ChevronRight, ZoomIn } from "lucide-react";
+import { ChevronLeft, ChevronRight, ZoomIn, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -7,49 +7,77 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 
-// Generates an array explicitly for images 33.JPG through 89.JPG
-const flightedImages = Array.from({ length: 57 }, (_, index) => {
-  const imageNumber = index + 33; // Starts at 33, ends at 89
+// Generates an array explicitly for 58 items starting from 33 (33 through 90)
+const flightedImages = Array.from({ length: 58 }, (_, index) => {
+  const mediaNumber = index + 33; // Starts at 33, ends at 90
   return {
-    id: imageNumber,
-    src: `/${imageNumber}.JPG`,          // Primary attempt (.JPG)
-    fallbackSrc: `/${imageNumber}.jpeg`, // Fallback attempt (.jpeg)
-    alt: `Flighted Candidate ${imageNumber}`,
+    id: mediaNumber,
+    src: `/${mediaNumber}.JPG`,          // Primary attempt (.JPG)
+    fallbackSrc: `/${mediaNumber}.jpeg`, // Secondary attempt (.jpeg)
+    videoSrc: `/${mediaNumber}.mp4`,     // Final fallback attempt (.mp4)
+    alt: `Flighted Candidate ${mediaNumber}`,
   };
 });
 
-// Helper component to handle stateful image fallback (.JPG -> .jpeg)
-const FallbackImage = ({
-  src,
-  fallbackSrc,
-  alt,
-  className,
+// Helper component that falls back: .JPG -> .jpeg -> .mp4
+const MultiFormatMedia = ({
+  item,
+  activeSrc,
+  isModal = false,
   onLoadedSrcChange,
 }: {
-  src: string;
-  fallbackSrc: string;
-  alt: string;
-  className?: string;
-  onLoadedSrcChange?: (currentSrc: string) => void;
+  item: typeof flightedImages[number];
+  activeSrc?: string;
+  isModal?: boolean;
+  onLoadedSrcChange?: (currentSrc: string, format: "image" | "video") => void;
 }) => {
-  const [imgSrc, setImgSrc] = useState(src);
+  const [mediaSrc, setMediaSrc] = useState(activeSrc || item.src);
+  const [isVideo, setIsVideo] = useState(activeSrc?.endsWith(".mp4") || false);
+
+  if (isVideo) {
+    return (
+      <video
+        src={mediaSrc}
+        className={
+          isModal
+            ? "max-h-[85vh] w-auto object-contain rounded-lg shadow-xl"
+            : "w-full h-full object-cover"
+        }
+        autoPlay
+        loop
+        muted
+        playsInline
+        controls={isModal}
+      />
+    );
+  }
 
   return (
     <img
-      src={imgSrc}
-      alt={alt}
-      className={className}
+      src={mediaSrc}
+      alt={item.alt}
+      className={
+        isModal
+          ? "max-h-[85vh] w-auto object-contain rounded-lg shadow-xl"
+          : "w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+      }
       onError={() => {
-        if (imgSrc !== fallbackSrc) {
-          setImgSrc(fallbackSrc);
-          if (onLoadedSrcChange) onLoadedSrcChange(fallbackSrc);
+        if (mediaSrc === item.src) {
+          // Attempt 2: Try .jpeg
+          setMediaSrc(item.fallbackSrc);
+          if (onLoadedSrcChange) onLoadedSrcChange(item.fallbackSrc, "image");
+        } else if (mediaSrc === item.fallbackSrc) {
+          // Attempt 3: Try .mp4 video
+          setMediaSrc(item.videoSrc);
+          setIsVideo(true);
+          if (onLoadedSrcChange) onLoadedSrcChange(item.videoSrc, "video");
         }
       }}
     />
   );
 };
 
-// Helper function to bundle 4 images per slide section
+// Helper function to bundle 4 items per slide section
 const chunkArray = (array: typeof flightedImages, size: number) => {
   const result = [];
   for (let i = 0; i < array.length; i += size) {
@@ -60,8 +88,10 @@ const chunkArray = (array: typeof flightedImages, size: number) => {
 
 const CanidatesGallery = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  // Store successfully loaded image paths by image ID
-  const [activeSrcs, setActiveSrcs] = useState<Record<number, string>>({});
+  // Store successfully loaded paths and formats by item ID
+  const [activeMedia, setActiveMedia] = useState<
+    Record<number, { src: string; type: "image" | "video" }>
+  >({});
 
   const imageSlides = chunkArray(flightedImages, 4);
   const maxSlides = imageSlides.length;
@@ -74,8 +104,12 @@ const CanidatesGallery = () => {
     setCurrentSlide((prev) => Math.min(maxSlides - 1, prev + 1));
   };
 
-  const handleSrcChange = (id: number, resolvedSrc: string) => {
-    setActiveSrcs((prev) => ({ ...prev, [id]: resolvedSrc }));
+  const handleMediaChange = (
+    id: number,
+    resolvedSrc: string,
+    type: "image" | "video"
+  ) => {
+    setActiveMedia((prev) => ({ ...prev, [id]: { src: resolvedSrc, type } }));
   };
 
   return (
@@ -124,38 +158,44 @@ const CanidatesGallery = () => {
           >
             {imageSlides.map((slide, slideIndex) => (
               <div key={slideIndex} className="min-w-full flex-shrink-0 grid grid-cols-2 gap-4 px-1">
-                {slide.map((image) => (
-                  <Dialog key={image.id}>
-                    <DialogTrigger asChild>
-                      <div className="cursor-pointer group">
-                        <div className="relative rounded-lg overflow-hidden aspect-[4/5] max-h-[420px] w-full mx-auto shadow-sm bg-muted/10 border">
-                          <FallbackImage
-                            src={image.src}
-                            fallbackSrc={image.fallbackSrc}
-                            alt={image.alt}
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                            onLoadedSrcChange={(resolvedSrc) =>
-                              handleSrcChange(image.id, resolvedSrc)
-                            }
-                          />
-                          <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                            <ZoomIn className="text-white h-6 w-6 transform scale-90 group-hover:scale-100 transition-transform duration-300" />
+                {slide.map((image) => {
+                  const mediaInfo = activeMedia[image.id];
+                  const isVideo = mediaInfo?.type === "video";
+
+                  return (
+                    <Dialog key={image.id}>
+                      <DialogTrigger asChild>
+                        <div className="cursor-pointer group">
+                          <div className="relative rounded-lg overflow-hidden aspect-[4/5] max-h-[420px] w-full mx-auto shadow-sm bg-muted/10 border">
+                            <MultiFormatMedia
+                              item={image}
+                              activeSrc={mediaInfo?.src}
+                              onLoadedSrcChange={(src, type) =>
+                                handleMediaChange(image.id, src, type)
+                              }
+                            />
+                            <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                              {isVideo ? (
+                                <Play className="text-white h-7 w-7 fill-white transform scale-90 group-hover:scale-100 transition-transform duration-300" />
+                              ) : (
+                                <ZoomIn className="text-white h-6 w-6 transform scale-90 group-hover:scale-100 transition-transform duration-300" />
+                              )}
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    </DialogTrigger>
-                    
-                    {/* Fullscreen Modal Image View */}
-                    <DialogContent className="max-w-md p-2 overflow-hidden border-none bg-transparent shadow-none flex items-center justify-center">
-                      <FallbackImage
-                        src={activeSrcs[image.id] || image.src}
-                        fallbackSrc={image.fallbackSrc}
-                        alt={image.alt}
-                        className="max-h-[85vh] w-auto object-contain rounded-lg shadow-xl"
-                      />
-                    </DialogContent>
-                  </Dialog>
-                ))}
+                      </DialogTrigger>
+                      
+                      {/* Fullscreen Modal View */}
+                      <DialogContent className="max-w-md p-2 overflow-hidden border-none bg-transparent shadow-none flex items-center justify-center">
+                        <MultiFormatMedia
+                          item={image}
+                          activeSrc={mediaInfo?.src}
+                          isModal
+                        />
+                      </DialogContent>
+                    </Dialog>
+                  );
+                })}
               </div>
             ))}
           </div>
@@ -164,36 +204,42 @@ const CanidatesGallery = () => {
         {/* Mobile / Tablet Viewport Layout */}
         <div className="lg:hidden">
           <div className="grid grid-cols-2 gap-3">
-            {imageSlides[currentSlide]?.map((image) => (
-              <Dialog key={image.id}>
-                <DialogTrigger asChild>
-                  <div className="cursor-pointer group">
-                    <div className="relative rounded-lg overflow-hidden aspect-[4/5] shadow-sm border">
-                      <FallbackImage
-                        src={image.src}
-                        fallbackSrc={image.fallbackSrc}
-                        alt={image.alt}
-                        className="w-full h-full object-cover"
-                        onLoadedSrcChange={(resolvedSrc) =>
-                          handleSrcChange(image.id, resolvedSrc)
-                        }
-                      />
-                      <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                        <ZoomIn className="text-white h-5 w-5" />
+            {imageSlides[currentSlide]?.map((image) => {
+              const mediaInfo = activeMedia[image.id];
+              const isVideo = mediaInfo?.type === "video";
+
+              return (
+                <Dialog key={image.id}>
+                  <DialogTrigger asChild>
+                    <div className="cursor-pointer group">
+                      <div className="relative rounded-lg overflow-hidden aspect-[4/5] shadow-sm border">
+                        <MultiFormatMedia
+                          item={image}
+                          activeSrc={mediaInfo?.src}
+                          onLoadedSrcChange={(src, type) =>
+                            handleMediaChange(image.id, src, type)
+                          }
+                        />
+                        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                          {isVideo ? (
+                            <Play className="text-white h-6 w-6 fill-white" />
+                          ) : (
+                            <ZoomIn className="text-white h-5 w-5" />
+                          )}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </DialogTrigger>
-                <DialogContent className="max-w-xs p-1 overflow-hidden border-none bg-transparent shadow-none flex items-center justify-center">
-                  <FallbackImage
-                    src={activeSrcs[image.id] || image.src}
-                    fallbackSrc={image.fallbackSrc}
-                    alt={image.alt}
-                    className="max-h-[80vh] w-auto object-contain rounded-lg"
-                  />
-                </DialogContent>
-              </Dialog>
-            ))}
+                  </DialogTrigger>
+                  <DialogContent className="max-w-xs p-1 overflow-hidden border-none bg-transparent shadow-none flex items-center justify-center">
+                    <MultiFormatMedia
+                      item={image}
+                      activeSrc={mediaInfo?.src}
+                      isModal
+                    />
+                  </DialogContent>
+                </Dialog>
+              );
+            })}
           </div>
         </div>
 
